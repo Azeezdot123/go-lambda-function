@@ -1,0 +1,7 @@
+# Create an iam lambda role 
+aws iam --region us-west-2 create-role --role-name <name> --assume-role-policy-document file://trust-policy.json
+# Create a lambda function
+aws lambda create-function --function-name <name> --zip-file fileb://function.zip --handler main --runtime go1.x --role arn:aws:iam::<AWSAccountID>:role/<iam role name>
+
+# Invoke the lambda with this data
+# {"name": "your name", "age": 123}
